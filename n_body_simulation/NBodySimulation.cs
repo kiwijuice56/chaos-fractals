@@ -101,7 +101,7 @@ public partial class NBodySimulation : Node {
 
 		for (int initY = 0; initY < height; initY++) {
 			for (int initX = 0; initX < width; initX++) {
-				float x = initX * RES, y = initY * RES, ax = 0, ay = 0, vx = 0, vy = 0;
+				float x = initX * RES + RES / 2.0f, y = initY * RES + RES / 2.0f, ax = 0, ay = 0, vx = 0, vy = 0;
 				int closestMagnet = 0;
 				bool escapes = true;
 				int iter = 0;

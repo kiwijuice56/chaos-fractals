@@ -51,44 +51,38 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="TopContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="SettingsContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/SettingsContainer"]
-layout_mode = 2
-text = "Settings"
-
-[node name="SettingsContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/SettingsContainer"]
+[node name="SettingsContainer" type="HBoxContainer" parent="UI/MarginContainer/TopContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="RenderButton" type="Button" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer"]
+[node name="RenderButton" type="Button" parent="UI/MarginContainer/TopContainer/SettingsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Create an image representing the final positions of an iron initially placed at each pixel."
 focus_mode = 0
 text = "Render"
 
-[node name="SaveImageButton" type="Button" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer"]
+[node name="SaveImageButton" type="Button" parent="UI/MarginContainer/TopContainer/SettingsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Save the rendered image as a png in the directory of the executable program."
 focus_mode = 0
 text = "Save Image"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/TopContainer/SettingsContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer"]
 layout_mode = 2
 text = "Resolution"
 
-[node name="ResolutionSpinBox" type="SpinBox" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer/HBoxContainer"]
+[node name="ResolutionSpinBox" type="SpinBox" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "The ratio of render pixel size to screen pixel size. "
@@ -96,15 +90,15 @@ min_value = 1.0
 max_value = 8.0
 value = 4.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/TopContainer/SettingsContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Iterations"
 
-[node name="IterationSpinBox" type="SpinBox" parent="UI/MarginContainer/VBoxContainer/SettingsContainer/SettingsContainer/HBoxContainer2"]
+[node name="IterationSpinBox" type="SpinBox" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
@@ -113,7 +107,7 @@ min_value = 1.0
 max_value = 2048.0
 value = 256.0
 
-[node name="Label" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/MarginContainer/TopContainer"]
 layout_mode = 2
 text = "(left-click to add a magnet, right-click to simulate an iron at that spot)"
 
@@ -161,7 +155,7 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="UI/MarginContainer/MagnetStatus/MagnetStatusContainer/MassContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(77, 0)
 layout_mode = 2
 text = "Strength"
 
@@ -170,7 +164,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 11
 size_flags_vertical = 3
-min_value = 0.05
+tooltip_text = "The strength of this magnet's magnetic field. A negative strength repels irons."
+min_value = -1000.0
 max_value = 1000.0
 step = 0.01
 value = 1.0

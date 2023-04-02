@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://bbmrb64ig3eh6"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bbmrb64ig3eh6"]
 
 [ext_resource type="FontFile" uid="uid://b01rv7u5hf6ku" path="res://ui/source_code_regular.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://cd63glskprkvi" path="res://ui/up_down.png" id="2"]
@@ -64,6 +64,10 @@ expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id="7"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [sub_resource type="StyleBoxFlat" id="10"]
@@ -95,20 +99,9 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 [sub_resource type="StyleBoxFlat" id="9"]
 bg_color = Color(0.752941, 0.752941, 0.752941, 1)
 
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
 [resource]
-default_font = SubResource("1")
+default_font = ExtResource("1")
+default_font_size = 12
 Button/styles/disabled = SubResource("2")
 Button/styles/focus = SubResource("2")
 Button/styles/hover = SubResource("5")

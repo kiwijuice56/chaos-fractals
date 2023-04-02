@@ -11,7 +11,8 @@ var field_shader: ShaderMaterial
 
 func set_mass(new_mass: float):
 	mass = new_mass
-	$Field.material.set_shader_parameter("range", min(0.5, 0.06 + mass / 256.0))
+	$Field.material.set_shader_parameter("rev", mass < 0)
+	$Field.material.set_shader_parameter("range", min(0.5, 0.02 + abs(mass / 256.0)))
 
 func _ready() -> void:
 	# Each magnet can have different wave parameters, so we must create a duplicate material
