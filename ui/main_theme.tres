@@ -1,0 +1,124 @@
+[gd_resource type="Theme" load_steps=20 format=2]
+
+[ext_resource path="res://ui/source_code_regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/up_down.png" type="Texture" id=2]
+[ext_resource path="res://ui/toggle_button1.png" type="Texture" id=3]
+[ext_resource path="res://ui/toggle_button2.png" type="Texture" id=4]
+[ext_resource path="res://ui/toggle_button3.png" type="Texture" id=5]
+[ext_resource path="res://ui/grabber.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id=12]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+Button/styles/disabled = SubResource( 2 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 4 )
+CheckButton/icons/off = ExtResource( 4 )
+CheckButton/icons/off_disabled = ExtResource( 5 )
+CheckButton/icons/on = ExtResource( 3 )
+CheckButton/icons/on_disabled = ExtResource( 3 )
+ColorPicker/constants/h_width = 32
+ColorPicker/constants/label_width = 10
+ColorPicker/constants/margin = 4
+ColorPicker/constants/sv_height = 256
+ColorPicker/constants/sv_width = 256
+ColorPickerButton/styles/disabled = SubResource( 11 )
+ColorPickerButton/styles/focus = SubResource( 11 )
+ColorPickerButton/styles/hover = SubResource( 12 )
+ColorPickerButton/styles/normal = SubResource( 11 )
+ColorPickerButton/styles/pressed = SubResource( 13 )
+HSlider/icons/grabber = ExtResource( 6 )
+HSlider/icons/grabber_disabled = ExtResource( 6 )
+HSlider/icons/grabber_highlight = ExtResource( 6 )
+HSlider/styles/slider = SubResource( 15 )
+LineEdit/styles/focus = SubResource( 7 )
+LineEdit/styles/normal = SubResource( 7 )
+PanelContainer/styles/panel = SubResource( 10 )
+PopupPanel/styles/panel = SubResource( 14 )
+SpinBox/icons/updown = ExtResource( 2 )
+TooltipLabel/fonts/font = SubResource( 8 )
+TooltipPanel/styles/panel = SubResource( 9 )

@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "// Creates a pulsating, circular wave texture for the \"gravitational field\" visual
+shader_type canvas_item;
+
+uniform float range = 0.5f; // How far the visual extends from the center of the canvas item
+uniform float freq = 32.0f; // The density of waves
+uniform float speed = 2.0f; // How fast the waves move from the center of the canvas item
+
+void fragment() {
+	float dist_x = (0.5 - UV.x) * (0.5 - UV.x);
+	float dist_y = (0.5 - UV.y) * (0.5 - UV.y);
+	float dist = sqrt(dist_x + dist_y);
+	COLOR.a = sin(speed * TIME - freq * dist) + abs(cos(speed * TIME - 4.0 * freq * dist)) ;
+	COLOR.a *= pow(max(0, 1.0 - (dist + (1.0 - range))), .85);
+}"
