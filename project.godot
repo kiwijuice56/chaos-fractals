@@ -6,47 +6,18 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Sprite",
-"class": "Magnet",
-"language": "GDScript",
-"path": "res://magnet/magnet.gd"
-}, {
-"base": "ColorPickerButton",
-"class": "MagnetColorPickerButton",
-"language": "GDScript",
-"path": "res://ui/magnet_color_picker_button.gd"
-}, {
-"base": "Node2D",
-"class": "MagnetContainer",
-"language": "GDScript",
-"path": "res://magnet/magnet_container.gd"
-}, {
-"base": "Node",
-"class": "Main",
-"language": "GDScript",
-"path": "res://main.gd"
-}, {
-"base": "Node",
-"class": "NBodySimulation",
-"language": "GDScript",
-"path": "res://n_body_simulation.gd"
-} ]
-_global_script_class_icons={
-"Magnet": "",
-"MagnetColorPickerButton": "",
-"MagnetContainer": "",
-"Main": "",
-"NBodySimulation": ""
-}
+config_version=5
 
 [application]
 
 config/name="gd-chaos-fractals"
 run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.0", "C#")
 config/icon="res://icon.png"
+
+[dotnet]
+
+project/assembly_name="gd-chaos-fractals"
 
 [gui]
 
@@ -58,8 +29,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.192157, 0.192157, 0.192157, 1)
+environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
-vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.192157, 0.192157, 0.192157, 1 )
-environment/default_environment="res://default_env.tres"

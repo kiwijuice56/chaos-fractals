@@ -7,7 +7,7 @@ const STATIONARY_LIMIT: int = 16
 const ABSOLUTE_LIMIT: int = 256
 const STATIONARY: float = 0.001
 
-var resolution: int = 2
+var resolution: int = 4
 
 func _input(event) -> void:
 	if event.is_action_pressed("ui_right", false):
@@ -22,7 +22,7 @@ func simulate() -> void:
 	var g: Array = []
 	var b: Array = []
 	
-	var out: PoolByteArray = []
+	var out: PackedByteArray = []
 	
 	var width: int
 	var height: int
@@ -35,9 +35,9 @@ func simulate() -> void:
 		g.append(child.self_modulate.g8)
 		b.append(child.self_modulate.b8)
 	
-	for init_y in range(0, ProjectSettings.get("display/window/size/height"), resolution):
+	for init_y in range(0, ProjectSettings.get("display/window/size/viewport_height"), resolution):
 		height += 1
-		for init_x in range(0, ProjectSettings.get("display/window/size/width"), resolution):
+		for init_x in range(0, ProjectSettings.get("display/window/size/viewport_width"), resolution):
 			if height == 1:
 				width += 1
 			var last_x: float = init_x
@@ -88,9 +88,9 @@ func simulate() -> void:
 			out.append(g[c_i])
 			out.append(b[c_i])
 			out.append(255)
-	var texture: ImageTexture = ImageTexture.new()
-	var image: Image = Image.new()
-	image.create_from_data(width, height, false, Image.FORMAT_RGBA8, out)
-	texture.create_from_image(image)
+	
+	var image: Image = Image.create_from_data(width, height, false, Image.FORMAT_RGBA8, out)
+	var texture: ImageTexture = ImageTexture.create_from_image(image)
+	
 	get_node("%Output").texture = texture
 
