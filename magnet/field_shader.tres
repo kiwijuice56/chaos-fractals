@@ -13,6 +13,6 @@ void fragment() {
 	float dist_y = (0.5 - UV.y) * (0.5 - UV.y);
 	float dist = sqrt(dist_x + dist_y);
 	COLOR.a = sin(speed * TIME - freq * dist) + abs(cos(speed * TIME - 4.0 * freq * dist));
-	COLOR += vec4(0.3, 0.3, 0.3, 0);
+	COLOR += vec4(0.5, 0.5, 0.5, 0);
 	COLOR.a *= pow(max(0, 1.0 - (dist + (1.0 - range))), .6);
 }"
