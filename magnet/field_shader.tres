@@ -1,4 +1,4 @@
-[gd_resource type="Shader" format=2]
+[gd_resource type="Shader" format=3 uid="uid://n4suskx7knve"]
 
 [resource]
 code = "// Creates a pulsating, circular wave texture for the \"gravitational field\" visual
@@ -12,6 +12,7 @@ void fragment() {
 	float dist_x = (0.5 - UV.x) * (0.5 - UV.x);
 	float dist_y = (0.5 - UV.y) * (0.5 - UV.y);
 	float dist = sqrt(dist_x + dist_y);
-	COLOR.a = sin(speed * TIME - freq * dist) + abs(cos(speed * TIME - 4.0 * freq * dist)) ;
-	COLOR.a *= pow(max(0, 1.0 - (dist + (1.0 - range))), .85);
+	COLOR.a = sin(speed * TIME - freq * dist) + abs(cos(speed * TIME - 4.0 * freq * dist));
+	COLOR += vec4(0.3, 0.3, 0.3, 0);
+	COLOR.a *= pow(max(0, 1.0 - (dist + (1.0 - range))), .6);
 }"

@@ -1,29 +1,35 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://5uy16duuoytk"]
 
-[ext_resource path="res://magnet/magnet.gd" type="Script" id=1]
-[ext_resource path="res://magnet/magnet.png" type="Texture2D" id=2]
-[ext_resource path="res://magnet/field_shader.tres" type="Shader" id=3]
-[ext_resource path="res://magnet/ripple.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://magnet/magnet.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bf38df54huq25" path="res://magnet/magnet.png" id="2"]
+[ext_resource type="Shader" uid="uid://n4suskx7knve" path="res://magnet/field_shader.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://dwj3l372vtrk6" path="res://magnet/ripple.png" id="4"]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 3 )
-shader_param/range = 0.06
-shader_param/freq = 128.0
-shader_param/speed = 8.0
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("3")
+shader_parameter/range = 0.06
+shader_parameter/freq = 128.0
+shader_parameter/speed = 8.0
 
 [node name="Magnet" type="Sprite2D"]
-position = Vector2( 330, 229 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 2 )
-script = ExtResource( 1 )
+position = Vector2(330, 229)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2")
+script = ExtResource("1")
 
 [node name="Field" type="Sprite2D" parent="."]
 show_behind_parent = true
-material = SubResource( 1 )
-scale = Vector2( 64, 64 )
-texture = ExtResource( 4 )
+material = SubResource("1")
+scale = Vector2(64, 64)
+texture = ExtResource("4")
+
+[node name="Outline" type="Sprite2D" parent="."]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+show_behind_parent = true
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2")
 
 [node name="SelectedOutline" type="Sprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2( 1.2, 1.2 )
-texture = ExtResource( 2 )
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2")

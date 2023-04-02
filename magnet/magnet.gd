@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion and dragging:
+		NBodySimulation.InitializeMagnets(get_parent())
 		position = event.position + grab_offset
 	
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
@@ -36,7 +37,6 @@ func _unhandled_input(event: InputEvent):
 
 func select() -> void:
 	$SelectedOutline.visible = true
-	
 
 func deselect() -> void:
 	$SelectedOutline.visible = false

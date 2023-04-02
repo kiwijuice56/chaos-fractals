@@ -1,22 +1,28 @@
 class_name Iron
 extends Sprite2D
 
-var x = 0
+var deleted: bool = false
+var velocity: Vector2
+var acceleration: Vector2
+var closest_magnet: int
 
-#func _ready() -> void:
-#	set_physics_process(false)
-#
-#func _input(event) -> void:
-#	if event.is_action_pressed("ui_right", false):
-#		get_node("../NBodySimulation").Initialize()
-#		get_node("../NBodySimulation").x = position.x
-#		get_node("../NBodySimulation").y = position.y
-#		set_physics_process(true)
-#
-#func _physics_process(delta):
-#	x += 1
-#	if (get_node("../NBodySimulation").Step()):
-#		set_physics_process(false)
-#		return
-#	position.x = get_node("../NBodySimulation").x
-#	position.y = get_node("../NBodySimulation").y 
+func _ready() -> void:
+	$Timer.timeout.connect(delete)
+
+func _physics_process(_delta):
+	if (NBodySimulation.StateStep(position.x, position.y, velocity.x, velocity.y, acceleration.x, acceleration.y)):
+		delete()
+	else:
+		position = Vector2(NBodySimulation.ox, NBodySimulation.oy);
+		velocity = Vector2(NBodySimulation.ovx, NBodySimulation.ovy);
+		acceleration = Vector2(NBodySimulation.oax, NBodySimulation.oay);
+
+func delete() -> void:
+	if deleted:
+		return
+	deleted = true
+	set_physics_process(false)
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.5)
+	await tween.finished
+	queue_free()
