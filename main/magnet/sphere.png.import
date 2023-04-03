@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwj3l372vtrk6"
-path="res://.godot/imported/ripple.png-3627e13a89bc0b8eb2cb7202f4f6a8bd.ctex"
+uid="uid://bf38df54huq25"
+path="res://.godot/imported/sphere.png-6420d66efad0ba9fbcc54ff34c57ef27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://magnet/ripple.png"
-dest_files=["res://.godot/imported/ripple.png-3627e13a89bc0b8eb2cb7202f4f6a8bd.ctex"]
+source_file="res://main/magnet/sphere.png"
+dest_files=["res://.godot/imported/sphere.png-6420d66efad0ba9fbcc54ff34c57ef27.ctex"]
 
 [params]
 

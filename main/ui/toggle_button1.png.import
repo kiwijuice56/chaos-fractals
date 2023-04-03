@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sltxjufus081"
-path="res://.godot/imported/toggle_button2.png-f25446c55fb4f410cb1f845e376e463a.ctex"
+uid="uid://dwfj4nfhb8hmr"
+path="res://.godot/imported/toggle_button1.png-a0a750a795ab2d8c64269a0fffde4fb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/toggle_button2.png"
-dest_files=["res://.godot/imported/toggle_button2.png-f25446c55fb4f410cb1f845e376e463a.ctex"]
+source_file="res://main/ui/toggle_button1.png"
+dest_files=["res://.godot/imported/toggle_button1.png-a0a750a795ab2d8c64269a0fffde4fb6.ctex"]
 
 [params]
 

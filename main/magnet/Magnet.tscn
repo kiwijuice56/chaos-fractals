@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsbfcv7gejeom"]
+
+[ext_resource type="Texture2D" uid="uid://bf38df54huq25" path="res://main/magnet/sphere.png" id="1_dsdl0"]
+[ext_resource type="Script" path="res://main/magnet/magnet.gd" id="2_mk78n"]
+[ext_resource type="Shader" uid="uid://n4suskx7knve" path="res://main/magnet/field_shader.tres" id="3_3kgsh"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("3_3kgsh")
+shader_parameter/range = 0.06
+shader_parameter/freq = 128.0
+shader_parameter/speed = 6.0
+shader_parameter/rev = false
+shader_parameter/layer = 4.0
+
+[node name="Magnet" type="Sprite2D"]
+position = Vector2(330, 229)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_dsdl0")
+script = ExtResource("2_mk78n")
+
+[node name="Field" type="Sprite2D" parent="."]
+show_behind_parent = true
+material = SubResource("1")
+scale = Vector2(24, 24)
+texture = ExtResource("1_dsdl0")
+
+[node name="Outline" type="Sprite2D" parent="."]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
+show_behind_parent = true
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_dsdl0")
+
+[node name="SelectedOutline" type="Sprite2D" parent="."]
+show_behind_parent = true
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_dsdl0")

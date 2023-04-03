@@ -1,11 +1,11 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bbmrb64ig3eh6"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://cg8kvj44rp6jy"]
 
-[ext_resource type="FontFile" uid="uid://b01rv7u5hf6ku" path="res://ui/source_code_regular.ttf" id="1"]
-[ext_resource type="Texture2D" uid="uid://cd63glskprkvi" path="res://ui/up_down.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://dwfj4nfhb8hmr" path="res://ui/toggle_button1.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://sltxjufus081" path="res://ui/toggle_button2.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://bf1xq6lkp7hi5" path="res://ui/toggle_button3.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://dx2wkond1kcoq" path="res://ui/grabber.png" id="6"]
+[ext_resource type="FontFile" uid="uid://b01rv7u5hf6ku" path="res://main/ui/source_code_regular.ttf" id="1"]
+[ext_resource type="Texture2D" uid="uid://cd63glskprkvi" path="res://main/ui/up_down.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dwfj4nfhb8hmr" path="res://main/ui/toggle_button1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://sltxjufus081" path="res://main/ui/toggle_button2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bf1xq6lkp7hi5" path="res://main/ui/toggle_button3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dx2wkond1kcoq" path="res://main/ui/grabber.png" id="6"]
 
 [sub_resource type="StyleBoxFlat" id="2"]
 content_margin_left = 8.0

@@ -1,15 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bim4k5h08mirn"]
+[gd_scene load_steps=7 format=3 uid="uid://pu5wbxrkc2pt"]
 
-[ext_resource type="PackedScene" uid="uid://5uy16duuoytk" path="res://magnet/Magnet.tscn" id="1"]
-[ext_resource type="Script" path="res://main.gd" id="2"]
-[ext_resource type="Theme" uid="uid://bbmrb64ig3eh6" path="res://ui/main_theme.tres" id="3"]
-[ext_resource type="Script" path="res://magnet/magnet_container.gd" id="4"]
-[ext_resource type="Script" path="res://iron/iron_container.gd" id="4_a3nnj"]
-[ext_resource type="Script" path="res://ui/magnet_color_picker_button.gd" id="5"]
-[ext_resource type="PackedScene" uid="uid://xdox5oxor4r8" path="res://iron/Iron.tscn" id="7_vl10f"]
+[ext_resource type="Script" path="res://main/main.gd" id="1_pdibx"]
+[ext_resource type="Script" path="res://main/magnet_container.gd" id="2_d2q1m"]
+[ext_resource type="PackedScene" uid="uid://dsbfcv7gejeom" path="res://main/magnet/Magnet.tscn" id="3_1nb61"]
+[ext_resource type="Script" path="res://main/iron_container.gd" id="4_txm1c"]
+[ext_resource type="PackedScene" path="res://main/iron/Iron.tscn" id="5_v870u"]
+[ext_resource type="Theme" uid="uid://cg8kvj44rp6jy" path="res://main/ui/main_theme.tres" id="6_uhv6s"]
 
 [node name="Main" type="Node"]
-script = ExtResource("2")
+script = ExtResource("1_pdibx")
 
 [node name="Output" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -24,12 +23,12 @@ stretch_mode = 5
 
 [node name="MagnetContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("4")
-magnet_scene = ExtResource("1")
+script = ExtResource("2_d2q1m")
+magnet_scene = ExtResource("3_1nb61")
 
 [node name="IronContainer" type="Node2D" parent="."]
-script = ExtResource("4_a3nnj")
-iron_scene = ExtResource("7_vl10f")
+script = ExtResource("4_txm1c")
+iron_scene = ExtResource("5_v870u")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -39,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("3")
+theme = ExtResource("6_uhv6s")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 0
@@ -104,7 +103,7 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 tooltip_text = "The maximum physics steps per pixel."
 min_value = 1.0
-max_value = 2048.0
+max_value = 8192.0
 value = 256.0
 
 [node name="Label" type="Label" parent="UI/MarginContainer/TopContainer"]
@@ -148,7 +147,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 color = Color(1, 1, 1, 1)
-script = ExtResource("5")
 
 [node name="MassContainer" type="HBoxContainer" parent="UI/MarginContainer/MagnetStatus/MagnetStatusContainer"]
 layout_mode = 2

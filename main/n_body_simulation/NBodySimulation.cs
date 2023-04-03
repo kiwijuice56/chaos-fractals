@@ -11,7 +11,7 @@ public partial class NBodySimulation : Node {
 	int oClosestMagnet;
 
 	// Simulation parameters
-	float G = 1.0f, DT = 32.0f, STOP_DIST_SQ = 96.0f;
+	double G = 1.0, DT = 32.0, STOP_DIST_SQ = 96.0;
 	int RES = 4, MAX_ITER = 256;
 	int width, height, fullWidth, fullHeight, magnetCnt;
 
@@ -39,9 +39,9 @@ public partial class NBodySimulation : Node {
 		}
 	}
 
-	public bool Step(ref float x, ref float y, ref float vx, ref float vy, ref float ax, ref float ay, ref int closestMagnet) {
-		vx += ax * DT / 2.0f;
-		vy += ay * DT / 2.0f;
+	public bool Step(ref double x, ref double y, ref double vx, ref double vy, ref double ax, ref double ay, ref int closestMagnet) {
+		vx += ax * DT / 2.0;
+		vy += ay * DT / 2.0;
 
 		x += vx;
 		y += vy;
@@ -57,9 +57,9 @@ public partial class NBodySimulation : Node {
 		}
 
 		for (int i = 0; i < magnetCnt; i++) {
-			float dx = px[i] - x, dy = py[i] - y;
-			float closestDist = (px[closestMagnet] - x) * (px[closestMagnet] - x) + (py[closestMagnet] - y) * (py[closestMagnet] - y);
-			float dist = dx * dx + dy * dy;
+			double dx = px[i] - x, dy = py[i] - y;
+			double closestDist = (px[closestMagnet] - x) * (px[closestMagnet] - x) + (py[closestMagnet] - y) * (py[closestMagnet] - y);
+			double dist = dx * dx + dy * dy;
 			if (dist < closestDist) {
 				closestMagnet = i;
 			}
@@ -68,24 +68,30 @@ public partial class NBodySimulation : Node {
 				return true;
 			}
 			
-			float invr3 = (float) Math.Pow(dx * dx + dy * dy, -1.5f);
+			double invr3 = Math.Pow(dx * dx + dy * dy, -1.5f);
 			
 			
 			ax += G * dx * invr3 * mass[i];
 			ay += G * dy * invr3 * mass[i];
 		}
 
-		vx += ax * DT / 2.0f;
-		vy += ay * DT / 2.0f;
+		vx += ax * DT / 2.0;
+		vy += ay * DT / 2.0;
 
 		return false;
 	}
 
-	// Since Godot cannot handle reference parameters, we need a helper method to transfer data
+	// Since Godot cannot handle reference parameters, we need a helper method to transfer data...
+	// Also, there are no doubles in GdScript!
 	public bool StateStep(float x, float y, float vx, float vy, float ax, float ay) {
 		oClosestMagnet = 0;
-		bool result = Step(ref x, ref y, ref vx, ref vy, ref ax, ref ay, ref oClosestMagnet);
-		ox = x; oy = y; ovx = vx; ovy = vy; oax = ax; oay = ay;
+		
+		double dox = x, doy = y, dovx = vx, dovy = vy, doax = ax, doay = ay;
+		bool result = Step(ref dox, ref doy, ref dovx, ref dovy, ref doax, ref doay, ref oClosestMagnet);
+		ox = (float) dox; oy = (float) doy; 
+		ovx = (float) dovx; ovy = (float) dovy; 
+		oax = (float) doax; oay = (float) doay;
+
 		return result;
 	}
 
@@ -101,13 +107,11 @@ public partial class NBodySimulation : Node {
 
 		for (int initY = 0; initY < height; initY++) {
 			for (int initX = 0; initX < width; initX++) {
-				float x = initX * RES + RES / 2.0f, y = initY * RES + RES / 2.0f, ax = 0, ay = 0, vx = 0, vy = 0;
+				double x = initX * RES + RES / 2.0, y = initY * RES + RES / 2.0, ax = 0, ay = 0, vx = 0, vy = 0;
 				int closestMagnet = 0;
-				bool escapes = true;
 				int iter = 0;
 				for (iter = 0; iter < MAX_ITER; iter++) {
 					if (Step(ref x, ref y, ref vx, ref vy, ref ax, ref ay, ref closestMagnet)) {
-						escapes = false;
 						break;
 					}
 				}

@@ -1,3 +1,4 @@
+# In-game representation of a single iron with position, velocity, and acceleration
 class_name Iron
 extends Sprite2D
 

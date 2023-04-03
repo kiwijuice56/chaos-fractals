@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bf38df54huq25" path="res://main/magnet/sphere.png" id="1_t3t2b"]
+[ext_resource type="Script" path="res://main/iron/iron.gd" id="2_imkhg"]
+
+[node name="Iron" type="Sprite2D"]
+position = Vector2(476, 267)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_t3t2b")
+script = ExtResource("2_imkhg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 16.0
+one_shot = true
+autostart = true

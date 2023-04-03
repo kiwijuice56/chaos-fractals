@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion and dragging:
+		# The position in the simulation must be updated
 		NBodySimulation.InitializeMagnets(get_parent())
 		position = event.position + grab_offset
 	

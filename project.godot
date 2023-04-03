@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="gd-chaos-fractals"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://main/Main.tscn"
 config/features=PackedStringArray("4.0", "C#")
 boot_splash/bg_color=Color(0.101961, 0.101961, 0.101961, 1)
 config/icon="res://icon.png"
 
 [autoload]
 
-NBodySimulation="*res://n_body_simulation/NBodySimulation.cs"
+NBodySimulation="*res://main/n_body_simulation/NBodySimulation.cs"
 
 [dotnet]
 
