@@ -10,16 +10,10 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_pdibx")
 
-[node name="Output" type="TextureRect" parent="."]
+[node name="Output" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_mode = 1
-stretch_mode = 5
+centered = false
 
 [node name="MagnetContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -79,7 +73,9 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "Resolution"
+vertical_alignment = 1
 
 [node name="ResolutionSpinBox" type="SpinBox" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -95,7 +91,9 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "Iterations"
+vertical_alignment = 1
 
 [node name="IterationSpinBox" type="SpinBox" parent="UI/MarginContainer/TopContainer/SettingsContainer/HBoxContainer2"]
 unique_name_in_owner = true
@@ -111,11 +109,10 @@ layout_mode = 2
 text = "(left-click to add a magnet, right-click to simulate an iron at that spot)"
 
 [node name="MagnetStatus" type="PanelContainer" parent="UI/MarginContainer"]
-visible = false
 custom_minimum_size = Vector2(256, 128)
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 10
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="MagnetStatusContainer" type="VBoxContainer" parent="UI/MarginContainer/MagnetStatus"]
 unique_name_in_owner = true

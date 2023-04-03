@@ -17,6 +17,7 @@ func render() -> void:
 	var image: Image = Image.create_from_data(NBodySimulation.width, NBodySimulation.height, false, Image.FORMAT_RGBA8, data)
 	var texture: ImageTexture = ImageTexture.create_from_image(image)
 	%Output.texture = texture
+	%Output.scale = Vector2(1, 1) * NBodySimulation.RES
 
 func save_image() -> void:
 	if (%Output.texture != null):

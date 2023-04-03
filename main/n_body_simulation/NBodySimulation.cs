@@ -16,8 +16,11 @@ public partial class NBodySimulation : Node {
 	int width, height, fullWidth, fullHeight, magnetCnt;
 
 	public void InitializeMagnets(Node magnetContainer) {
-		fullWidth = (int) GetViewport().GetWindow().Size.X;
-		fullHeight = (int) GetViewport().GetWindow().Size.Y;
+		double winWidth = (double) GetViewport().GetWindow().Size.X;
+		double winHeight = (double) GetViewport().GetWindow().Size.Y;
+		
+		fullWidth = (int) (winWidth);
+		fullHeight = (int) (winHeight);
 
 		magnetCnt = magnetContainer.GetChildCount();
 		px = new float[magnetCnt];

@@ -20,6 +20,10 @@ config/icon="res://icon.png"
 
 NBodySimulation="*res://main/n_body_simulation/NBodySimulation.cs"
 
+[display]
+
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="gd-chaos-fractals"
