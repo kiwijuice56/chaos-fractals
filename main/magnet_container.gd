@@ -17,6 +17,9 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
 		add_magnet(event.position)
+	if event.is_action_pressed("delete_magnet", false):
+		delete_selected_magnet()
+	
 
 func add_magnet(magnet_position: Vector2) -> void:
 	var magnet = magnet_scene.instantiate()
@@ -32,6 +35,8 @@ func add_magnet(magnet_position: Vector2) -> void:
 	NBodySimulation.InitializeMagnets(self)
 
 func delete_selected_magnet() -> void:
+	if not is_instance_valid(selected_magnet):
+		return
 	remove_child(selected_magnet)
 	selected_magnet.queue_free()
 	NBodySimulation.InitializeMagnets(self)
@@ -66,3 +71,5 @@ func _on_mass_updated(mass: float) -> void:
 		return
 	selected_magnet.mass = mass
 	NBodySimulation.InitializeMagnets(self)
+	if is_instance_valid(get_viewport().gui_get_focus_owner()):
+		get_viewport().gui_get_focus_owner().release_focus()

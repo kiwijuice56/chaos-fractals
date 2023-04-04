@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://pu5wbxrkc2pt"]
+[gd_scene load_steps=8 format=3 uid="uid://pu5wbxrkc2pt"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_pdibx"]
 [ext_resource type="Script" path="res://main/magnet_container.gd" id="2_d2q1m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://main/iron_container.gd" id="4_txm1c"]
 [ext_resource type="PackedScene" path="res://main/iron/Iron.tscn" id="5_v870u"]
 [ext_resource type="Theme" uid="uid://cg8kvj44rp6jy" path="res://main/ui/main_theme.tres" id="6_uhv6s"]
+[ext_resource type="Script" path="res://main/ui/ui.gd" id="7_66chx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_pdibx")
@@ -33,6 +34,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("6_uhv6s")
+script = ExtResource("7_66chx")
+
+[node name="HideLabel" type="Label" parent="UI"]
+visible = false
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1144.0
+offset_bottom = 27.0
+size_flags_vertical = 0
+text = "[h to unhide UI]"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 0
@@ -84,6 +96,7 @@ tooltip_text = "The ratio of render pixel size to screen pixel size. "
 min_value = 1.0
 max_value = 8.0
 value = 4.0
+select_all_on_focus = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/TopContainer/SettingsContainer"]
 layout_mode = 2
@@ -103,10 +116,11 @@ tooltip_text = "The maximum physics steps per pixel."
 min_value = 1.0
 max_value = 8192.0
 value = 256.0
+select_all_on_focus = true
 
 [node name="Label" type="Label" parent="UI/MarginContainer/TopContainer"]
 layout_mode = 2
-text = "(left-click to add a magnet, right-click to simulate an iron at that spot)"
+text = "[left-click: add a magnet, right-click: add an iron, h: hide UI, del: delete selected magnet]"
 
 [node name="MagnetStatus" type="PanelContainer" parent="UI/MarginContainer"]
 custom_minimum_size = Vector2(256, 128)

@@ -21,13 +21,17 @@ func render() -> void:
 
 func save_image() -> void:
 	if (%Output.texture != null):
-		%Output.texture.image.save_png("./render%7d.png" % randi_range(0,9000000))
+		%Output.texture.image.save_png("./render%d.png" % randi_range(10000000,100000000))
 
 func _on_window_resized() -> void:
 	NBodySimulation.InitializeMagnets(%MagnetContainer)
 
 func _on_resolution_updated(res: int) -> void:
 	NBodySimulation.RES = res
+	if is_instance_valid(get_viewport().gui_get_focus_owner()):
+		get_viewport().gui_get_focus_owner().release_focus()
 
 func _on_iterations_updated(iter: int) -> void:
-	NBodySimulation.MAX_ITER = iter;
+	NBodySimulation.MAX_ITER = iter
+	if is_instance_valid(get_viewport().gui_get_focus_owner()):
+		get_viewport().gui_get_focus_owner().release_focus()
